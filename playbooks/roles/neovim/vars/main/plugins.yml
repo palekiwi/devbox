@@ -1,0 +1,90 @@
+---
+neovim_plugins:
+  - repo: EdenEast/nightfox.nvim
+    enabled: true
+    config:
+      name: nightfox
+
+  - repo: nvim-tree/nvim-web-devicons
+    enabled: true
+
+  - repo: nvim-tree/nvim-tree.lua
+    enabled: true
+    config:
+      name: nvim-tree
+
+  - repo: rcarriga/nvim-notify
+    enabled: true
+    config:
+      name: nvim-notify
+
+  - repo: romgrk/barbar.nvim
+    enabled: true
+    config:
+      name: barbar
+
+  - repo: phaazon/hop.nvim
+    branch: v2
+    enabled: true
+    config:
+      name: hop
+
+  - repo: nvim-lualine/lualine.nvim
+    enabled: true
+    config:
+      name: lualine
+
+  - repo: mg979/vim-visual-multi
+    enabled: true
+
+  - repo: windwp/nvim-autopairs
+    enabled: true
+    config:
+      name: nvim-autopairs
+
+  - repo: kylechui/nvim-surround
+    version: "*"
+    enabled: true
+    config:
+      name: nvim-surround
+
+  - repo: nvim-telescope/telescope.nvim
+    branch: 0.1.x
+    dependencies:
+      - nvim-lua/plenary.nvim
+    enabled: true
+
+  - repo: voldikss/vim-floaterm
+    enabled: true
+
+  - repo: jackMort/ChatGPT.nvim
+    enabled: "{{ neovim_use_chatgpt }}"
+    dependencies:
+      - MunifTanjim/nui.nvim
+      - nvim-lua/plenary.nvim
+      - nvim-telescope/telescope.nvim
+    config:
+      name: chatgpt
+
+  - repo: Exafunction/codeium.vim
+    enabled: "{{ neovim_use_codeium }}"
+    config:
+      name: codeium
+
+  - repo: folke/which-key.nvim
+    enabled: use_wk
+    event: "VeryLazy"
+
+  - repo: lukas-reineke/indent-blankline.nvim
+    main: ibl
+    enabled: true
+    config:
+      name: indent-blankline
+
+  - repo: ludovicchabant/vim-gutentags
+    enabled: true
+
+  - repo: barklan/capslock.nvim
+    enabled: true
+    config:
+      name: capslock

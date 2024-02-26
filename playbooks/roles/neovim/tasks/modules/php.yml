@@ -1,0 +1,9 @@
+---
+- name: Ensure php packages are installed is installed.
+  become: true
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - php
+    - composer

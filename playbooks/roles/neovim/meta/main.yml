@@ -1,0 +1,18 @@
+---
+dependencies: []
+
+collections:
+  - community.general
+
+galaxy_info:
+  role_name: neovim
+  author: palekiwi
+  description: Install neovim with plugins
+  license: "license (BSD, MIT)"
+  min_ansible_version: "2.10"
+  platforms:
+    - name: EL
+      versions:
+        - "9"
+  galaxy_tags:
+    - neovim

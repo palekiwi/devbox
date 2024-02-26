@@ -1,0 +1,29 @@
+---
+dev_image_build_image: "docker.io/library/archlinux:latest"
+dev_image_build_name: dev-build
+
+dev_image_family: archlinux
+dev_image_image_name: "dev/dev"
+dev_image_image_tag: "latest"
+
+dev_image_locales:
+  - en_US.UTF-8
+  - zh_TW.UTF-8
+
+dev_image_packages:
+  - curl
+  - ctags
+  - fd
+  - git
+  - man-db
+  - man-pages
+  - openssh
+  - ranger
+  - rsync
+  - sudo
+  - tree
+  - unrar
+  - unzip
+  - wget
+  - which
+  - zip

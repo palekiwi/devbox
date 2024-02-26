@@ -1,0 +1,25 @@
+#jinja2: trim_blocks: True, lstrip_blocks: True
+-- {{ ansible_managed }}
+
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      {% if neovim_use_wk %}
+      require("which-key").register({
+        ["<C-space>"] = { rt.hover_actions.hover_actions, "Hover Actions" }, { buffer = bufnr },
+        ["<leader>a"] = { rt.code_action_group.code_action_group, "Code Action Group" }, { buffer = bufnr },
+      })
+      {% else %}
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+      {% endif %}
+    end,
+  },
+  tools = {
+    hover_actions = {
+      auto_focus = true,
+    },
+  },
+})

@@ -1,0 +1,12 @@
+-- {{ ansible_managed }}
+require 'lualine'.setup {
+    options = {
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+    },
+    sections = {
+        lualine_a = {
+            function() return vim.fn["codeium#GetStatusString"]() end
+        },
+    },
+}

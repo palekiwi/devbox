@@ -1,0 +1,10 @@
+---
+- name: Ensure that essential packages are installed.
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ neovim_system_packages }}"
+
+- name: Install requirements for language modules.
+  ansible.builtin.import_tasks: "modules/main.yml"

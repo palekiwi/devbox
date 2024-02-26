@@ -1,0 +1,24 @@
+---
+- name: Install init.lua.
+  ansible.builtin.template:
+    src: templates/init.lua.j2
+    dest: "{{ neovim_base_dir }}/init.lua"
+    mode: "0644"
+    force: true
+
+- name: Install config/settings template.
+  ansible.builtin.template:
+    src: "templates/lua/config/{{ item.name }}.lua.j2"
+    dest: "{{ neovim_config_dir }}/{{ item.name }}.lua"
+    mode: "0644"
+    force: "{{ item.force }}"
+  loop:
+    - { name: "settings-base", force: true }
+    - { name: "settings", force: false }
+
+- name: Install config/mappings template
+  ansible.builtin.template:
+    src: "templates/lua/config/mappings-wk.lua.j2"
+    dest: "{{ neovim_config_dir }}/mappings.lua"
+    force: "{{ neovim_overwrite_mappings }}"
+    mode: "0644"

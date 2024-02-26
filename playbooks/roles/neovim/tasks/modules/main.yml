@@ -1,0 +1,16 @@
+---
+- name: Install requirements for rust.
+  ansible.builtin.import_tasks: "rust.yml"
+  when: "'rust' in neovim_modules"
+
+- name: Install requirements for lua.
+  ansible.builtin.import_tasks: "lua.yml"
+  when: "'lua' in neovim_modules"
+
+- name: Install requirements for php.
+  ansible.builtin.import_tasks: "php.yml"
+  when: "'php' in neovim_modules"
+
+- name: Install requirements for devops.
+  ansible.builtin.import_tasks: "devops.yml"
+  when: "'devops' in neovim_modules"

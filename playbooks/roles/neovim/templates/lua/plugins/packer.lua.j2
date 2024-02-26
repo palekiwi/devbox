@@ -1,0 +1,32 @@
+#jinja2: trim_blocks: True, lstrip_blocks: True
+-- {{ ansible_managed }}
+
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+
+  --> plugins start
+{% for item in neovim_plugins %}
+  {% if item.enabled %}
+  use {
+    "{{ item.repo }}",
+    {% if item.tag is defined %}
+    tag = "{{ item.tag }}",
+    {% endif %}
+    {% if item.branch is defined %}
+    branch = "{{ item.branch }}",
+    {% endif %}
+    {% if item.run is defined %}
+    run = "{{ item.run }}",
+    {% endif %}
+    {% if item.requires is defined %}
+    requires = {
+      {% for req in item.requires %}
+      "{{ req }}",
+      {% endfor %}
+    },
+    {% endif %}
+  }
+  {% endif %}
+{% endfor %}
+  --> plugins end
+end)

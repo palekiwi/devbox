@@ -1,0 +1,3 @@
+---
+neovim_treesitter_auto_install: "true"
+neovim_treesitter_sync_install: "false"

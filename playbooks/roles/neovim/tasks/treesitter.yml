@@ -1,0 +1,4 @@
+---
+- name: Add treesitter plugins to plugins.
+  ansible.builtin.set_fact:
+    neovim_plugins: "{{ neovim_plugins + neovim_treesitter_plugins }}"

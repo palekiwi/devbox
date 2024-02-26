@@ -1,0 +1,10 @@
+---
+neovim_system_packages:
+  - git
+  - wget
+  - unzip
+  - neovim
+  - base-devel # required for TreeSitter
+  - npm
+  - typescript
+  - prettier

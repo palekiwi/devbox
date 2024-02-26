@@ -1,0 +1,11 @@
+-- {{ ansible_managed }}
+require("mason-nvim-dap").setup({
+    ensure_installed = {
+      {% for item in neovim_lsp_dap_adapters %}
+        {% if item.enabled %}
+        "{{ item.name }}",
+        {% endif %}
+      {% endfor %}
+    },
+    automatic_installation = {{ neovim_lsp_automatic_installation }},
+})

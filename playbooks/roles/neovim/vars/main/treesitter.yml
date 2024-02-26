@@ -1,0 +1,36 @@
+---
+neovim_treesitter_plugins:
+  - repo: nvim-treesitter/nvim-treesitter
+    enabled: true
+    build: ":TSUpdate"
+    config:
+      name: nvim-treesitter
+
+  - repo: nvim-treesitter/nvim-treesitter-refactor
+    enabled: true
+
+neovim_treesitter_parsers:
+  - { name: vimdoc, enabled: true }
+  - { name: bash, enabled: true }
+  - { name: ini, enabled: true }
+  - { name: json, enabled: true }
+  - { name: yaml, enabled: true }
+  - { name: git_config, enabled: true }
+  - { name: gitignore, enabled: true }
+  - { name: sxhkdrc, enabled: true }
+  - { name: c, enabled: "{{ 'c' in neovim_modules or 'cpp' in neovim_modules }}" }
+  - { name: cmake, enabled: "{{ 'c' in neovim_modules or 'cpp' in neovim_modules }}" }
+  - { name: rust, enabled: "{{ 'rust' in neovim_modules }}" }
+  - { name: toml, enabled: "{{ 'rust' in neovim_modules }}" }
+  - { name: lua, enabled: "{{ 'lua' in neovim_modules }}" }
+  - { name: python, enabled: "{{ 'python' in neovim_modules }}" }
+  - { name: javascript, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: typescript, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: html, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: css, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: astro, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: dockerfile, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: go, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: ruby, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: php, enabled: "{{ 'php' in neovim_modules }}" }
+  - { name: vue, enabled: "{{ 'web' in neovim_modules }}" }

@@ -1,0 +1,75 @@
+local wk = require("which-key")
+
+vim.g.mapleader = ","
+
+local file = {
+  ["<C-e>"] = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+  ["<C-f>"] = { "<cmd>Telescope find_files<cr>", "Find File" },
+  ["<leader>"] = {
+    f = {
+      name = "+file",
+      b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+      f = { "<cmd>Telescope find_files<cr>", "Find File" },
+      g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+      h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+      m = { "<cmd>Telescope marks<cr>", "Marks" },
+      n = { "<cmd>enew<cr>", "New File" },
+      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+      t = { "<cmd>Telescope tags<cr>", "Tags" },
+    },
+    n = { "<cmd>NvimTreeToggle<cr>", "Tree Toggle" },
+    q = { "<cmd>quit<cr>", "Quit" },
+    w = { "<cmd>write<cr>", "Write" },
+  },
+}
+
+local lsp = {
+  ["<C-k>"] = { vim.lsp.buf.signature_help, "LSP Signature help" },
+  ["<C-space>"] = { vim.lsp.buf.hover, "LSP Hover" },
+  ["<space>"] = {
+    c = {
+      name = "+code",
+      a = { vim.lsp.buf.code_action, "LSP Code Action" },
+      r = { vim.lsp.buf.rename, "LSP Rename" },
+    },
+    D = { vim.lsp.buf.type_definition, "LSP Type Definition" },
+    f = { function() vim.lsp.buf.format { async = true } end, "LSP Format" },
+  },
+  g = {
+    d = { vim.lsp.buf.definition, "LSP Definition" },
+    D = { vim.lsp.buf.declaration, "LSP Declaration" },
+    i = { vim.lsp.buf.implementation, "LSP Implementation" },
+    r = { vim.lsp.buf.references, "LSP References" },
+  }
+}
+
+local diagnostics = {
+  ["<leader>"] = {
+    e = { vim.diagnostic.goto_next, "Diagnostics Next" },
+    E = { vim.diagnostic.goto_prev, "Diagnostics Prev" },
+  },
+  ["<space>"] = {
+    e = { vim.diagnostic.open_float, "Diagnostics Float" },
+    q = { vim.diagnostic.setloclist, "Diagnostics List" },
+  }
+}
+
+
+wk.register(file)
+wk.register(lsp)
+wk.register(diagnostics)
+
+-- no prefix
+wk.register({
+  s = { "<cmd>HopChar1<cr>", "Hop Char 1" },
+})
+
+-- alt
+wk.register({
+  ["<A-,>"] = { "<cmd>BufferPrevious<cr>", "Previous Buffer" },
+  ["<A-.>"] = { "<cmd>BufferNext<cr>", "Next Buffer" },
+  ["<A-c>"] = { "<cmd>BufferClose<cr>", "Close Buffer" },
+  ["<A-p>"] = { "<cmd>BufferPin<cr>", "Pin Buffer" },
+})
+
+wk.setup({})

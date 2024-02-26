@@ -1,0 +1,17 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    neovim_modules: ["c", "rust", "devops", "python", "web", "lua", "php"]
+    neovim_use_lsp: true
+    neovim_use_treesitter: true
+    neovim_plugin_manager: lazy
+    neovim_overwrite_mappings: true
+    neovim_use_codeium: false
+    neovim_install_system_packages: true
+
+  tasks:
+    - name: "Include palekiwi.neovim"
+      ansible.builtin.include_role:
+        name: "palekiwi.neovim"

@@ -1,0 +1,33 @@
+#jinja2: trim_blocks: True, lstrip_blocks: True
+-- {{ ansible_managed }}
+require("lazy").setup({
+  {% for item in neovim_plugins %}
+    {% if item.enabled %}
+    {
+      "{{ item.repo }}",
+      {% if item.version is defined %}
+      version = "{{ item.version }}",
+      {% endif %}
+      {% if item.branch is defined %}
+      branch = "{{ item.branch }}",
+      {% endif %}
+      {% if item.main is defined %}
+      main = "{{ item.main }}",
+      {% endif %}
+      {% if item.build is defined %}
+      build = "{{ item.build }}",
+      {% endif %}
+      {% if item.event is defined %}
+      event = "{{ item.event }}",
+      {% endif %}
+      {% if item.dependencies is defined %}
+      dependencies = {
+        {% for dep in item.dependencies %}
+        "{{ dep }}",
+        {% endfor %}
+      },
+      {% endif %}
+    },
+    {% endif %}
+  {% endfor %}
+})

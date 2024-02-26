@@ -1,0 +1,8 @@
+---
+dev_container_image_name: localhost/dev/dev
+dev_container_image_tag: latest
+
+dev_container_name: dev-test
+dev_container_home: /home/pl/box/dev/test
+
+dev_container_autostart: false

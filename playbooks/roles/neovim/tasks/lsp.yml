@@ -1,0 +1,4 @@
+---
+- name: Add lsp plugins to plugins.
+  ansible.builtin.set_fact:
+    neovim_plugins: "{{ neovim_plugins + neovim_lsp_plugins }}"

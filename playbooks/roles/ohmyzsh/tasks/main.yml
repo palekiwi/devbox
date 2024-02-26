@@ -1,0 +1,62 @@
+---
+- name: Ensure required packages are installed.
+  become: true
+  ansible.builtin.package:
+    name:
+      - git
+      - zsh
+    state: present
+
+- name: Clone ohmyzsh repository
+  ansible.builtin.git:
+    repo: https://github.com/ohmyzsh/ohmyzsh.git
+    depth: 1
+    version: master
+    dest: ~/.oh-my-zsh
+
+- name: Clone syntax highlighting repository
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    depth: 1
+    version: master
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+- name: Clone autosuggestions repository
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    depth: 1
+    version: master
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+- name: Install zsh-notify
+  when: ohmyzsh_gui
+  block:
+    - name: Install required dependencies
+      become: true
+      ansible.builtin.package:
+        name:
+          - libnotify
+          - wmctrl
+          - xdotool
+
+    - name: Clone zsh-notify repository
+      ansible.builtin.git:
+        repo: https://github.com/marzocchi/zsh-notify.git
+        depth: 1
+        version: master
+        dest: ~/.oh-my-zsh/custom/plugins/notify
+
+- name: Ensure user shell is set to zsh
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+
+- name: Install zsh configuration template
+  ansible.builtin.template:
+    src: templates/zshrc.j2
+    dest: ~/.zshrc
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0644"
+    force: false

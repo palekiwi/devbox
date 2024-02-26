@@ -1,0 +1,30 @@
+-- {{ ansible_managed }}
+
+{% if neovim_plugin_manager == "lazy" %}
+vim.opt.runtimepath:append("$HOME/.local/share/nvim/lazy/nvim-treesitter")
+{% endif %}
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    {% for item in neovim_treesitter_parsers %}
+      {% if item.enabled %}
+        "{{ item.name }}",
+      {% endif %}
+    {% endfor %}
+  },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = {{ neovim_treesitter_sync_install }},
+
+  -- Automatically install missing parsers when entering buffer
+  auto_install = {{ neovim_treesitter_auto_install }},
+
+{% if neovim_plugin_manager == "lazy" %}
+  parser_install_dir ="$HOME/.local/share/nvim/lazy/nvim-treesitter",
+{% endif %}
+
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}

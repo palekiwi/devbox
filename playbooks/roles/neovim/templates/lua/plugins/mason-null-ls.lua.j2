@@ -1,0 +1,13 @@
+#jinja2: trim_blocks: True, lstrip_blocks: True
+-- {{ ansible_managed }}
+
+require("mason-null-ls").setup {
+    ensure_installed = {
+      {% for item in neovim_lsp_formatters %}
+        {% if item.enabled %}
+        "{{ item.name }}",
+        {% endif %}
+      {% endfor %}
+    },
+    automatic_installation = {{ neovim_lsp_automatic_installation }},
+}

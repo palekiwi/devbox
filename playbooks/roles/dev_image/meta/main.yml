@@ -1,0 +1,21 @@
+---
+dependencies: []
+
+collections:
+  - ansible.posix
+  - community.general
+  - containers.podman
+
+galaxy_info:
+  role_name: dev_image
+  author: palekiwi
+  description: Build an image for development container.
+  license: "license (BSD, MIT)"
+  min_ansible_version: "2.10"
+  platforms:
+    - name: EL
+      versions:
+        - "9"
+  galaxy_tags:
+    - podman
+    - dev

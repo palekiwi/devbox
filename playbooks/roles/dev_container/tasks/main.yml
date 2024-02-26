@@ -1,0 +1,44 @@
+---
+- name: Check if the box image already exists
+  containers.podman.podman_image_info:
+    name: "{{ dev_container_image_name }}:{{ dev_container_image_tag }}"
+  register: current
+
+- name: Fail if image not present.
+  when: "current.images | length == 0"
+  ansible.builtin.fail:
+    msg: "Required image `{{ dev_test_image_name }}:{{ dev_test_image_tag }}` not present."
+
+- name: Ensure that container home directory exists.
+  ansible.builtin.file:
+    path: "{{ dev_container_home }}"
+    state: directory
+    mode: "0755"
+
+- name: Create the container.
+  ansible.builtin.command:
+    cmd: >
+      distrobox create -i {{ dev_container_image_name }}:{{ dev_container_image_tag }}
+      -n {{ dev_container_name }}
+      -H {{ dev_container_home }}
+  register: dc
+  changed_when: "'already exists' not in dc.stdout"
+
+- name: Launch the container.
+  ansible.builtin.command:
+    cmd: >
+      distrobox enter {{ dev_container_name }} --no-tty --no-workdir
+  changed_when: "'already exists' not in dc.stdout"
+
+- name: Ensure systemd unit is generated for {{ dev_container_name }}.
+  containers.podman.podman_generate_systemd:
+    name: "{{ dev_container_name }}"
+    dest: ~/.config/systemd/user/
+    restart_policy: on-failure
+
+- name: Ensure systemd service is enabled for {{ dev_container_name }}.
+  ansible.builtin.systemd:
+    name: container-{{ dev_container_name }}
+    daemon_reload: true
+    enabled: "{{ dev_container_autostart }}"
+    scope: user

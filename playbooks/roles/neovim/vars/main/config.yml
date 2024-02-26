@@ -1,0 +1,5 @@
+---
+# directories
+neovim_plugins_dir: "{{ neovim_base_dir }}/lua/plugins"
+neovim_config_dir: "{{ neovim_base_dir }}/lua/config"
+neovim_snippets_dir: "{{ neovim_base_dir }}/snippets"

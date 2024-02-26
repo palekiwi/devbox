@@ -1,0 +1,139 @@
+neovim_lsp_plugins:
+  - repo: jose-elias-alvarez/null-ls.nvim
+    enabled: false
+    config:
+      name: "null-ls"
+
+  - repo: nvimtools/none-ls.nvim
+    enabled: true
+    config:
+      name: "null-ls"
+
+  - repo: williamboman/mason.nvim
+    build: ":MasonUpdate"
+    enabled: true
+    config:
+      name: "mason"
+
+  - repo: williamboman/mason-lspconfig.nvim
+    enabled: true
+    config:
+      name: "mason-lspconfig"
+
+  - repo: jay-babu/mason-null-ls.nvim
+    enabled: true
+    config:
+      name: "mason-null-ls"
+    dependencies:
+      - williamboman/mason.nvim
+      - nvimtools/none-ls.nvim
+
+  - repo: jay-babu/mason-nvim-dap.nvim
+    enabled: true
+    config:
+      name: "mason-nvim-dap"
+
+  - repo: folke/neodev.nvim
+    enabled: true
+    config:
+      name: neodev
+
+  - repo: neovim/nvim-lspconfig
+    enabled: true
+    config:
+      name: "nvim-lspconfig"
+
+  - repo: MunifTanjim/prettier.nvim
+    enabled: true
+    config:
+      name: "prettier"
+
+  - repo: hrsh7th/cmp-path
+    enabled: true
+
+  - repo: hrsh7th/nvim-cmp
+    enabled: true
+    config:
+      name: "nvim-cmp"
+
+  - repo: hrsh7th/cmp-nvim-lsp
+    enabled: true
+
+  - repo: hrsh7th/cmp-nvim-lsp-signature-help
+    enabled: true
+
+  - repo: saadparwaiz1/cmp_luasnip
+    enabled: true
+
+  - repo: L3MON4D3/LuaSnip
+    enabled: true
+    config:
+      name: "luasnip"
+    build: "make install_jsregexp"
+
+  - repo: onsails/lspkind.nvim
+    enabled: true
+
+  - repo: simrat39/rust-tools.nvim
+    enabled: "{{ 'rust' in neovim_modules }}"
+    config:
+      name: rust-tools
+
+  - repo: mfussenegger/nvim-dap
+    enabled: "{{ 'rust' in neovim_modules or 'c' in neovim_modules }}"
+
+  - repo: rcarriga/nvim-dap-ui
+    enabled: "{{ 'rust' in neovim_modules or 'c' in neovim_modules }}"
+    dependencies:
+      - mfussenegger/nvim-dap
+    config:
+      name: nvim-dap-ui
+
+  - repo: someone-stole-my-name/yaml-companion.nvim
+    enabled: "{{ 'devops' in neovim_modules }}"
+    dependencies:
+      - neovim/nvim-lspconfig
+      - nvim-lua/plenary.nvim
+      - nvim-telescope/telescope.nvim
+    config:
+      name: yaml-companion
+
+neovim_lsp_servers:
+  - { name: ansiblels, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: yamlls, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: clangd, enabled: "{{ 'c' in neovim_modules or 'cpp' in neovim_modules }}" }
+  - { name: gopls, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: ruby_ls, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: pyright, enabled: "{{ 'python' in neovim_modules }}" }
+  - { name: rust_analyzer, enabled: "{{ 'rust' in neovim_modules }}" }
+  - { name: lua_ls, enabled: "{{ 'lua' in neovim_modules }}" }
+  - { name: astro, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: tailwindcss, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: tsserver, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: phpactor, enabled: "{{ 'php' in neovim_modules }}" }
+  - { name: volar, enabled: "{{ 'web' in neovim_modules }}" }
+
+neovim_lsp_formatters:
+  - { name: pint, enabled: "{{ 'php' in neovim_modules }}" }
+  - { name: golines, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: sql-formatter, enabled: "{{ 'devops' in neovim_modules }}" }
+
+neovim_lsp_dap_adapters:
+  - { name: python, enabled: "{{ 'python' in neovim_modules }}" }
+  - { name: js, enabled: "{{ 'web' in neovim_modules }}" }
+
+neovim_lsp_prettier:
+  - { name: "css", enabled: true }
+  - { name: "astro", enabled: true }
+  - { name: "html", enabled: true }
+  - { name: "javascript", enabled: true }
+  - { name: "javascriptreact", enabled: true }
+  - { name: "json", enabled: true }
+  - { name: "less", enabled: true }
+  - { name: "markdown", enabled: true }
+  - { name: "scss", enabled: true }
+  - { name: "typescript", enabled: true }
+  - { name: "typescriptreact", enabled: true }
+  - { name: "yaml", enabled: true }
+  - { name: "php", enabled: true }
+  - { name: "vue", enabled: true }

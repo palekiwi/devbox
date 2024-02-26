@@ -1,0 +1,26 @@
+---
+- name: Ensure rustup is installed.
+  become: true
+  community.general.pacman:
+    name: rustup
+    state: present
+
+- name: Ensure lldb is installed.
+  become: true
+  community.general.pacman:
+    name: lldb
+    state: present
+
+- name: Check currently installed default toolchain.
+  ansible.builtin.command:
+    cmd: rustup default
+  register: default_toolchain
+  changed_when: false
+  failed_when: false
+
+- name: Ensure default toolchain is set to {{ neovim_rustup_version }}.
+  ansible.builtin.command:
+    cmd: "rustup default {{ neovim_rustup_version }}"
+  register: default_toolchain
+  changed_when: true
+  when: "neovim_rustup_version not in default_toolchain.stdout"
