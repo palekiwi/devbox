@@ -1,0 +1,12 @@
+---
+- name: Run -Syu.
+  become: true
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+
+- name: Ensure required packages are installed.
+  become: true
+  community.general.pacman:
+    name: "{{ packages }}"
+    state: present

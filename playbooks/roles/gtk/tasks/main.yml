@@ -1,0 +1,28 @@
+---
+# tasks file for gtk
+- name: Install GTK packages.
+  become: true
+  community.general.pacman:
+    name: "{{ gtk_packages }}"
+    state: present
+
+- name: Create a local themes directory.
+  ansible.builtin.file:
+    path: "{{ gtk_local_themes_dir }}"
+    mode: "0755"
+    state: directory
+
+- name: Copy themes to local directory.
+  ansible.builtin.copy:
+    src: "/usr/share/themes/{{ gtk_theme }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: "0755"
+    dest: "{{ gtk_local_themes_dir }}"
+    remote_src: true
+
+- name: Copy files and templates.
+  ansible.builtin.include_tasks: files.yml
+  loop:
+    - gtk-3.0
+    - gtk-4.0

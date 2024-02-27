@@ -1,0 +1,18 @@
+---
+- name: Ensure GTK config directories exist.
+  ansible.builtin.file:
+    path: ~/.config/{{ item }}
+    state: directory
+    mode: "0755"
+
+- name: Set default GTK theme to {{ gtk_theme }}.
+  ansible.builtin.template:
+    src: templates/settings.ini.j2
+    dest: ~/.config/{{ item }}/settings.ini
+    mode: "0644"
+
+- name: Copy gtk.css.
+  ansible.builtin.copy:
+    src: files/gtk.css
+    dest: ~/.config/{{ item }}/gtk.css
+    mode: "0644"

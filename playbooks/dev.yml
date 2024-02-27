@@ -1,0 +1,26 @@
+---
+- name: Create dev test container.
+  hosts: localhost
+  gather_facts: false
+  connection: local
+
+  vars_files:
+    - ./vars/dev.yml
+
+  tasks:
+    - name: Include role dev_container.
+      ansible.builtin.include_role:
+        name: dev_container
+
+- name: Provision dev
+  hosts: dev
+
+  roles:
+    - { role: ohmyzsh, tags: ["ohmyzsh"] }
+    - { role: neovim, tags: ["neovim"] }
+    - { role: gtk, tags: ["gtk"] }
+
+  tasks:
+    - name: Tasks for packages.
+      ansible.builtin.import_tasks: ./tasks/packages.yml
+      tags: ["packages"]

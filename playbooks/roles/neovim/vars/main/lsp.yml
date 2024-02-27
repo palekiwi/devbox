@@ -32,6 +32,9 @@ neovim_lsp_plugins:
     enabled: true
     config:
       name: "mason-nvim-dap"
+    dependencies:
+      - williamboman/mason.nvim
+      - mfussenegger/nvim-dap
 
   - repo: folke/neodev.nvim
     enabled: true

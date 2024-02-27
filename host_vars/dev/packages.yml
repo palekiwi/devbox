@@ -1,0 +1,56 @@
+aur_helper: paru
+
+aur_packages: []
+
+packages:
+  - ansible
+  - ansible-lint
+  - atool
+  - bat           # cat replacement
+  - cmus          # radio streaming
+  - ctags
+  - curl
+  - dos2unix
+  - exa
+  - fasd
+  - fd
+  - feh
+  - ffmpeg
+  - freeplane
+  - git
+  - git-lfs
+  - github-cli
+  - gitui
+  - inetutils
+  - jq
+  - jre11-openjdk
+  - libmad        # libmad required by cmus to play mp3 streams
+  - maim
+  - man-db
+  - man-pages
+  - most            # pager with colors
+  - neofetch
+  - neovim
+  - openssh
+  - pass
+  - playerctl
+  - prettier
+  - ranger
+  - ripgrep
+  - rofi
+  - rofi-calc
+  - rofi-pass
+  - rsync
+  - scrot
+  - tldr
+  - tree
+  - unclutter
+  - unrar
+  - unzip
+  - wget
+  - which
+  - xclip
+  - xdotool
+  - xorg-xev
+  - zip
+  - zsh

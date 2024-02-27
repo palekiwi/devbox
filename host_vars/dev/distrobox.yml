@@ -1,0 +1,25 @@
+distrobox_host_exec:
+  - "/usr/bin/bluetoothctl"
+  - "/usr/bin/flatpak"
+  - "/usr/bin/kubectl"
+  - "/usr/bin/minikube"
+  - "/usr/bin/podman"
+  - "/usr/bin/podman-compose"
+  - "/usr/bin/rpm"
+  - "/usr/bin/tailscale"
+  - "/usr/bin/vagrant"
+  - "/usr/bin/virsh"
+  - "/usr/bin/xrandr"
+
+distrobox_export_bins:
+  - cmus
+  - cmus-remote
+  - maim
+  - playerctl
+  - rofi
+  - rofi-pass
+  - scrot
+  - unclutter
+  - xclip
+  - xdotool
+  - xset
