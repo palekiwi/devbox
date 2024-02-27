@@ -1,2 +1,5 @@
 ---
-roles: []
+roles:
+  - name: palekiwi.dotfiles
+    src: https://github.com/palekiwi/ansible-role-dotfiles
+    version: main

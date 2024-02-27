@@ -1,0 +1,31 @@
+dotfiles_repo: git@github.com:dhammafarer/dotfiles
+dotfiles_repo_version: main
+dotfiles_repo_accept_hostkey: true
+
+dotfiles_repo_local_dest: ~/dotfiles
+
+dotfiles_record_dir: "~/.dotfiles.d"
+
+dotfiles_files:
+  - { label: "aliases", dest: "~/.aliases", src: "arch/aliases" }
+  - { label: "aliases.d", dest: "~/.aliases.d", src: "arch/aliases.d" }
+  - { label: "clang-format", dest: "~/.clang-format", src: "arch/clang-format" }
+  - { label: "cmus.lib", dest: "~/.config/cmus/lib.pl", src: "arch/config/cmus/lib.pl" }
+  - { label: "git.hooks", dest: "~/.git/hooks", src: "arch/git/hooks" }
+  - { label: "gitconfig", dest: "~/.gitconfig", src: "arch/gitconfig" }
+  - { label: "gitignore", dest: "~/.gitignore", src: "arch/gitignore" }
+  - { label: "npmrc", dest: "~/.npmrc", src: "arch/npmrc" }
+  - { label: "nvim.mappings", dest: "~/.config/nvim/lua/config/mappings.lua", src: "arch/config/nvim/lua/config/mappings-wk.lua" }
+  - { label: "nvim.settings", dest: "~/.config/nvim/lua/config/settings.lua", src: "arch/config/nvim/lua/config/settings.lua" }
+  - { label: "qmk.config", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/config.h", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/config.h" }
+  - { label: "qmk.keymap", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/keymap.c", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/keymap.c" }
+  - { label: "qmk.rules", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/rules.mk", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/rules.mk" }
+  - { label: "ranger.rifle", dest: "~/.config/ranger/rifle.conf", src: "arch/config/ranger/rifle.conf" }
+  - { label: "rofi.colors", dest: "~/.config/rofi/colors.rasi", src: "arch/config/rofi/colors.rasi" }
+  - { label: "rofi.config", dest: "~/.config/rofi/config.rasi", src: "arch/config/rofi/config.rasi" }
+  - { label: "rofi.pass", dest: "~/.config/rofi-pass/config", src: "arch/config/rofi-pass/config" }
+  - { label: "rofi.theme", dest: "~/.config/rofi/theme.rasi", src: "arch/config/rofi/theme.rasi" }
+  - { label: "scripts.cplay", dest: "~/.local/bin/cplay", src: "arch/bin/cplay" }
+  - { label: "snippets", dest: "~/.config/nvim/snippets", src: "arch/config/nvim/snippets" }
+  - { label: "zshenv", dest: "~/.zshenv", src: "arch/zshenv" }
+  - { label: "zshrc", dest: "~/.zshrc", src: "arch/zshrc" }

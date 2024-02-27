@@ -1,0 +1,20 @@
+---
+- name: Ensure export directory exists.
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user }}/.local/bin"
+    state: directory
+    mode: "0755"
+
+- name: Export binaries.
+  ansible.builtin.command:
+    cmd: "distrobox-export --bin /usr/bin/{{ item }} --export-path /home/{{ ansible_user }}/.local/bin"
+    creates: /home/{{ ansible_user }}/.local/bin/{{ item }}
+  loop: "{{ distrobox_export_bins }}"
+
+- name: Create links for distrobox-host-exec
+  become: true
+  ansible.builtin.file:
+    src: "/usr/bin/distrobox-host-exec"
+    dest: "/usr/bin/{{ item }}"
+    state: link
+  loop: "{{ distrobox_host_exec }}"

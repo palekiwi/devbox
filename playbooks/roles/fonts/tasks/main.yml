@@ -1,0 +1,14 @@
+---
+# tasks file for fonts
+- name: Check if fonts already exist.
+  ansible.builtin.stat:
+    path: "{{ fonts_dir }}/{{ item }}"
+  register: existing_fonts
+  loop: "{{ fonts_nerdfonts_fonts }}"
+
+- name: Include nerdfont tasks.
+  ansible.builtin.include_tasks: nerdfonts.yml
+  loop: "{{ fonts_nerdfonts_fonts }}"
+  loop_control:
+    index_var: index
+  when: not existing_fonts.results[index].stat.exists

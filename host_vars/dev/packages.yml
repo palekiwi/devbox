@@ -3,8 +3,6 @@ aur_helper: paru
 aur_packages: []
 
 packages:
-  - ansible
-  - ansible-lint
   - atool
   - bat           # cat replacement
   - cmus          # radio streaming
@@ -21,6 +19,8 @@ packages:
   - git-lfs
   - github-cli
   - gitui
+  - ibus
+  - ibus-libpinyin
   - inetutils
   - jq
   - jre11-openjdk
@@ -31,6 +31,7 @@ packages:
   - most            # pager with colors
   - neofetch
   - neovim
+  - nextcloud-client
   - openssh
   - pass
   - playerctl
@@ -42,6 +43,7 @@ packages:
   - rofi-pass
   - rsync
   - scrot
+  - seahorse
   - tldr
   - tree
   - unclutter

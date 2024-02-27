@@ -1,0 +1,6 @@
+---
+# handlers file for fonts
+- name: Refresh font cache.
+  ansible.builtin.command:
+    cmd: "fc-cache -f"
+  changed_when: true

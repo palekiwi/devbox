@@ -1,20 +1,23 @@
 distrobox_host_exec:
-  - "/usr/bin/bluetoothctl"
-  - "/usr/bin/flatpak"
-  - "/usr/bin/kubectl"
-  - "/usr/bin/minikube"
-  - "/usr/bin/podman"
-  - "/usr/bin/podman-compose"
-  - "/usr/bin/rpm"
-  - "/usr/bin/tailscale"
-  - "/usr/bin/vagrant"
-  - "/usr/bin/virsh"
-  - "/usr/bin/xrandr"
+  - bluetoothctl
+  - flatpak
+  - kubectl
+  - minikube
+  - podman
+  - rpm
+  - tailscale
+  - vagrant
+  - virsh
+  - xrandr
 
 distrobox_export_bins:
   - cmus
   - cmus-remote
+  - ibus
+  - ibus-setup
+  - ibus-daemon
   - maim
+  - nextcloud
   - playerctl
   - rofi
   - rofi-pass

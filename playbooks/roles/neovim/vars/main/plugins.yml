@@ -88,3 +88,11 @@ neovim_plugins:
     enabled: true
     config:
       name: capslock
+
+  - repo: serenevoid/kiwi.nvim
+    enabled: true
+    dependencies:
+      - nvim-lua/plenary.nvim
+    lazy: true
+    config:
+      name: vimwiki

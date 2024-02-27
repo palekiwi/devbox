@@ -1,0 +1,21 @@
+---
+- name: Download font archives.
+  ansible.builtin.get_url:
+    url: "{{ fonts_nerdfonts_repo }}/releases/download/v{{ fonts_nerdfonts_version }}/{{ item }}.zip"
+    dest: /tmp
+    mode: "0644"
+  loop_control:
+    index_var: index
+
+- name: Ensure target directory exists.
+  ansible.builtin.file:
+    path: "{{ fonts_dir }}/{{ item }}"
+    state: directory
+    mode: "0755"
+
+- name: Unpack archives.
+  ansible.builtin.unarchive:
+    dest: "{{ fonts_dir }}/{{ item }}"
+    remote_src: true
+    src: "/tmp/{{ item }}.zip"
+  notify: Refresh font cache.

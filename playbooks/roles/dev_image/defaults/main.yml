@@ -11,6 +11,8 @@ dev_image_locales:
   - zh_TW.UTF-8
 
 dev_image_packages:
+  - ansible
+  - ansible-lint
   - curl
   - ctags
   - fd

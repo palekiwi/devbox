@@ -1,0 +1,27 @@
+---
+- name: Create dev container.
+  hosts: localhost
+  gather_facts: false
+  connection: local
+
+  vars:
+    dev_containers:
+      - image: localhost/dev/dev
+        tag: latest
+        name: dev
+        home: /home/pl
+        autostart: true
+        enabled: true
+
+  tasks:
+    - name: Include role dev_container.
+      ansible.builtin.include_role:
+        name: dev_container
+      vars:
+        dev_container_image_name: "{{ item.image }}"
+        dev_container_image_tag: "{{ item.tag }}"
+        dev_container_name: "{{ item.name }}"
+        dev_container_home: "{{ item.home }}"
+        dev_container_autostart: "{{ item.autostart }}"
+      loop: "{{ dev_containers }}"
+      when: item.enabled
