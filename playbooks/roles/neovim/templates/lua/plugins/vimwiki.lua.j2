@@ -1,6 +1,8 @@
 require('kiwi').setup({
+    {% for item in neovim_notes %}
     {
-        name = "notes",
-        path = "/home/pl/Nextcloud/Notes"
+        name = "{{ item.name }}",
+        path = "{{ item.path }}"
     }
+    {% endfor %}
 })

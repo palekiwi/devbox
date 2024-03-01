@@ -18,6 +18,10 @@
       ansible.builtin.import_tasks: ./tasks/hosts.yml
       tags: hosts
 
+    - name: Tasks/dirs.
+      ansible.builtin.import_tasks: ./tasks/dirs.yml
+      tags: dirs
+
     - name: Tasks/distrobox.
       ansible.builtin.import_tasks: ./tasks/distrobox.yml
       tags: distrobox

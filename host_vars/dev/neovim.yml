@@ -6,3 +6,7 @@ neovim_use_chatgpt: false
 neovim_chatgpt_api_key_cmd: "cat /home/pl/.nvim_openai"
 neovim_install_system_packages: true
 neovim_modules: ["c", "rust", "lua", "python", "web", "devops", "php"]
+
+neovim_notes:
+  - name: notes
+    path: /home/pl/Nextcloud/Notes
