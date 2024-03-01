@@ -1,71 +1,85 @@
 ---
-- name: Create and start the build container.
-  containers.podman.podman_container:
-    image: "{{ dev_image_build_image }}"
-    name: "{{ dev_image_build_name }}"
-    command: "tail -f /dev/null"
-    state: started
-
-- name: Add new container to the inventory
-  ansible.builtin.add_host:
-    hostname: "{{ dev_image_build_name }}"
-    ansible_connection: podman
-    ansible_user: root
-    ansible_python_interpreter: /usr/bin/python3
-
-- name: Delegate tasks to {{ dev_image_build_name }}.
-  delegate_to: "{{ dev_image_build_name }}"
+- name: Check if image is present.
   block:
-    - name: Ensure Python is installed.
-      ansible.builtin.raw: pacman -Syu --noconfirm python3
+    - name: Gather info on a specific image
+      containers.podman.podman_image_info:
+        name: dev/dev
+      register: image_info
+
+    - name: Set fact for dev_image_build
+      ansible.builtin.set_fact:
+        dev_image_build: "{{ (image_info.images | length) == 0 }}"
+
+- name: Build the required image.
+  when: dev_image_build
+  block:
+    - name: Create and start the build container.
+      containers.podman.podman_container:
+        image: "{{ dev_image_build_image }}"
+        name: "{{ dev_image_build_name }}"
+        command: "tail -f /dev/null"
+        state: started
+
+    - name: Add new container to the inventory
+      ansible.builtin.add_host:
+        hostname: "{{ dev_image_build_name }}"
+        ansible_connection: podman
+        ansible_user: root
+        ansible_python_interpreter: /usr/bin/python3
+
+    - name: Delegate tasks to {{ dev_image_build_name }}.
+      delegate_to: "{{ dev_image_build_name }}"
+      block:
+        - name: Ensure Python is installed.
+          ansible.builtin.raw: pacman -Syu --noconfirm python3
+          changed_when: true
+
+        - name: Gather facts inside the container.
+          ansible.builtin.setup:
+
+        - name: Run pacman -Syu.
+          community.general.pacman:
+            update_cache: true
+            upgrade: true
+
+        - name: Install required packages.
+          community.general.pacman:
+            name: "{{ dev_image_packages }}"
+
+        - name: Ensure locale is correct.
+          block:
+            - name: Install locales.
+              become: true
+              community.general.locale_gen:
+                name: "{{ item }}"
+                state: present
+              loop: "{{ dev_image_locales }}"
+          rescue:
+            - name: Remove NoExtract directive from pacman.conf.
+              ansible.builtin.lineinfile:
+                path: /etc/pacman.conf
+                regex: "^NoExtract"
+                state: absent
+
+            - name: Force reinstallation of glibc to generate missing locale.
+              become: true
+              ansible.builtin.command:
+                cmd: "pacman -Sy --noconfirm glibc"
+              changed_when: false
+
+            - name: Install locales.
+              become: true
+              community.general.locale_gen:
+                name: "{{ item }}"
+                state: present
+              loop: "{{ dev_image_locales }}"
+
+    - name: Commit the container.
+      ansible.builtin.command: >
+        podman commit {{ dev_image_build_name }} {{ dev_image_image_name }}
       changed_when: true
 
-    - name: Gather facts inside the container.
-      ansible.builtin.setup:
-
-    - name: Run pacman -Syu.
-      community.general.pacman:
-        update_cache: true
-        upgrade: true
-
-    - name: Install required packages.
-      community.general.pacman:
-        name: "{{ dev_image_packages }}"
-
-    - name: Ensure locale is correct.
-      block:
-        - name: Install locales.
-          become: true
-          community.general.locale_gen:
-            name: "{{ item }}"
-            state: present
-          loop: "{{ dev_image_locales }}"
-      rescue:
-        - name: Remove NoExtract directive from pacman.conf.
-          ansible.builtin.lineinfile:
-            path: /etc/pacman.conf
-            regex: "^NoExtract"
-            state: absent
-
-        - name: Force reinstallation of glibc to generate missing locale.
-          become: true
-          ansible.builtin.command:
-            cmd: "pacman -Sy --noconfirm glibc"
-          changed_when: false
-
-        - name: Install locales.
-          become: true
-          community.general.locale_gen:
-            name: "{{ item }}"
-            state: present
-          loop: "{{ dev_image_locales }}"
-
-- name: Commit the container.
-  ansible.builtin.command: >
-    podman commit {{ dev_image_build_name }} {{ dev_image_image_name }}
-  changed_when: true
-
-- name: Remove the container.
-  containers.podman.podman_container:
-    name: "{{ dev_image_build_name }}"
-    state: absent
+    - name: Remove the container.
+      containers.podman.podman_container:
+        name: "{{ dev_image_build_name }}"
+        state: absent
