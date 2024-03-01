@@ -3,7 +3,7 @@
   block:
     - name: Gather info on a specific image
       containers.podman.podman_image_info:
-        name: dev/dev
+        name: "{{ dev_image_image_name }}:{{ dev_image_image_tag }}"
       register: image_info
 
     - name: Set fact for dev_image_build
@@ -11,7 +11,7 @@
         dev_image_build: "{{ (image_info.images | length) == 0 }}"
 
 - name: Build the required image.
-  when: dev_image_build
+  when: dev_image_build or dev_image_build_force
   block:
     - name: Create and start the build container.
       containers.podman.podman_container:
@@ -76,7 +76,7 @@
 
     - name: Commit the container.
       ansible.builtin.command: >
-        podman commit {{ dev_image_build_name }} {{ dev_image_image_name }}
+        podman commit {{ dev_image_build_name }} {{ dev_image_image_name }}:{{ dev_image_image_tag }}
       changed_when: true
 
     - name: Remove the container.
