@@ -14,10 +14,10 @@
       ansible.builtin.import_tasks: ./tasks/packages.yml
       tags: packages
 
-    - name: Tasks/distrobox.
-      ansible.builtin.import_tasks: ./tasks/distrobox.yml
-      tags: distrobox
-
     - name: Tasks/hosts.
       ansible.builtin.import_tasks: ./tasks/hosts.yml
       tags: hosts
+
+    - name: Tasks/distrobox.
+      ansible.builtin.import_tasks: ./tasks/distrobox.yml
+      tags: distrobox
