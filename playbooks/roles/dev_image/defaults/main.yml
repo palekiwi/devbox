@@ -2,6 +2,8 @@
 dev_image_build_image: "docker.io/library/archlinux:latest"
 dev_image_build_name: dev-build
 
+dev_image_build_force: false
+
 dev_image_family: archlinux
 dev_image_image_name: "dev/dev"
 dev_image_image_tag: "latest"
@@ -13,19 +15,46 @@ dev_image_locales:
 dev_image_packages:
   - ansible
   - ansible-lint
-  - curl
+  - atool
+  - atool
+  - bat           # cat replacement
   - ctags
+  - curl
+  - dos2unix
+  - exa
+  - fasd
   - fd
+  - feh
+  - ffmpeg
+  - freeplane
   - git
+  - git-lfs
+  - github-cli
+  - gitui
+  - inetutils
+  - jq
+  - maim
   - man-db
   - man-pages
+  - neofetch
+  - neovim
   - openssh
+  - pass
+  - prettier
   - ranger
+  - ripgrep
   - rsync
+  - scrot
   - sudo
+  - tldr
   - tree
   - unrar
   - unzip
   - wget
   - which
+  - xclip
+  - xclip
+  - xdotool
+  - xorg-xev
   - zip
+  - zsh
