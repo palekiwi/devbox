@@ -13,18 +13,24 @@
     index_var: index
   when: not existing_fonts.results[index].stat.exists
 
+- name: Check if CJK fonts are installed
+  ansible.builtin.stat:
+    path: "{{ fonts_dir }}/{{ fonts_cjk_dirname }}"
+  register: stat_noto_cjk
+
 - name: Ensure CJK fonts are installed.
+  when: not stat_noto_cjk.stat.exists
   become: true
   block:
     - name: Install CJK fonts.
       community.general.pacman:
-        name: noto-fonts-cjk
+        name: "{{ fonts_cjk_package }}"
         state: present
 
-    - name: Copy fonts to ~/.local/share/fonts.
+    - name: Copy fonts to {{ fonts_dir }}
       ansible.builtin.copy:
-        src: /usr/share/fonts/noto-cjk
-        dest: /home/{{ ansible_user }}/.local/share/fonts/
+        src: /usr/share/fonts/{{ fonts_cjk_dirname }}
+        dest: "{{ fonts_dir }}"
         mode: "0755"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
@@ -32,5 +38,5 @@
 
     - name: Remove CJK fonts.
       community.general.pacman:
-        name: noto-fonts-cjk
+        name: "{{ fonts_cjk_package }}"
         state: absent

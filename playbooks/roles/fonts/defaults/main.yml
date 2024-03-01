@@ -6,4 +6,7 @@ fonts_nerdfonts_fonts:
   - JetBrainsMono
   - FiraCode
 
-fonts_dir: "$HOME/.local/share/fonts"
+fonts_dir: "/home/pl/.local/share/fonts"
+
+fonts_cjk_package: noto-fonts-cjk
+fonts_cjk_dirname: noto-cjk

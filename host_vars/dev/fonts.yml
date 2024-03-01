@@ -1,8 +1,2 @@
 ---
-fonts_nerdfonts_repo: https://github.com/ryanoasis/nerd-fonts
 fonts_nerdfonts_version: "3.1.1"
-fonts_nerdfonts_fonts:
-  - JetBrainsMono
-  - FiraCode
-
-fonts_dir: "$HOME/.local/share/fonts"
