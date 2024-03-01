@@ -25,11 +25,7 @@ ansible-playbook playbooks/dev_image.yml
 echo "Creating dev container..."
 ansible-playbook playbooks/dev_create.yml
 
+echo "Provisioning dev container..."
+ansible-playbook playbooks/main.yml -e ansible_connection=podman
+
 echo -e "\nDONE\n"
-
-echo "To provision, enter the container and run:"
-echo -e "\n"
-
-echo "cd $(pwd)"
-echo "ansible-playbook playbooks/dev.yml"
-echo -e "\n"
