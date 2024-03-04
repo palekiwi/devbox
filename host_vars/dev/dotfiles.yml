@@ -11,7 +11,7 @@ dotfiles_files:
   - { label: "aliases.d", dest: "~/.aliases.d", src: "arch/aliases.d" }
   - { label: "clang-format", dest: "~/.clang-format", src: "arch/clang-format" }
   - { label: "cmus.lib", dest: "~/.config/cmus/lib.pl", src: "arch/config/cmus/lib.pl" }
-  - { label: "git.hooks", dest: "~/.git/hooks", src: "arch/git/hooks" }
+  - { label: "githooks", dest: "~/.githooks", src: "arch/git/hooks" }
   - { label: "gitconfig", dest: "~/.gitconfig", src: "arch/gitconfig" }
   - { label: "gitignore", dest: "~/.gitignore", src: "arch/gitignore" }
   - { label: "npmrc", dest: "~/.npmrc", src: "arch/npmrc" }
