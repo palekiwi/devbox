@@ -9,6 +9,8 @@ dotfiles_record_dir: "~/.dotfiles.d"
 dotfiles_files:
   - { label: "aliases", dest: "~/.aliases", src: "arch/aliases" }
   - { label: "aliases.d", dest: "~/.aliases.d", src: "arch/aliases.d" }
+  - { label: "calcurse.conf", dest: "~/.config/calcurse/conf", src: "arch/config/calcurse/conf" }
+  - { label: "calcurse.caldav", dest: "~/.config/calcurse/caldav/config", src: "arch/config/calcurse/caldav/config" }
   - { label: "clang-format", dest: "~/.clang-format", src: "arch/clang-format" }
   - { label: "cmus.lib", dest: "~/.config/cmus/lib.pl", src: "arch/config/cmus/lib.pl" }
   - { label: "githooks", dest: "~/.githooks", src: "arch/git/hooks" }

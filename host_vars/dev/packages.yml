@@ -3,6 +3,7 @@ aur_helper: paru
 aur_packages: []
 
 packages:
+  - calcurse
   - cmus          # radio streaming
   - freeplane
   - ibus

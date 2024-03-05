@@ -1,0 +1,6 @@
+---
+dev_systemd_units:
+  - unit: calcurse-caldav.timer
+    enabled: true
+  - unit: calcurse-caldav.service
+    enabled: true

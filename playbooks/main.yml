@@ -25,3 +25,7 @@
     - name: Tasks/distrobox.
       ansible.builtin.import_tasks: ./tasks/distrobox.yml
       tags: distrobox
+
+    - name: Tasks/systemd.
+      ansible.builtin.import_tasks: ./tasks/systemd.yml
+      tags: systemd

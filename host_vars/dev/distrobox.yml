@@ -5,12 +5,14 @@ distrobox_host_exec:
   - minikube
   - podman
   - rpm
+  - systemctl
   - tailscale
   - vagrant
   - virsh
   - xrandr
 
 distrobox_export_bins:
+  - calcurse-caldav
   - cmus
   - cmus-remote
   - ibus

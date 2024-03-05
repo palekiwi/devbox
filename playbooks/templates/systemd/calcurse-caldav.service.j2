@@ -1,0 +1,10 @@
+[Unit]
+Description=Service for calcurse-caldav script.
+Wants=calcurse-caldav.timer
+
+[Service]
+Type=oneshot
+ExecStart=/var/home/pl/.local/bin/calcurse-caldav
+
+[Install]
+WantedBy=default.target

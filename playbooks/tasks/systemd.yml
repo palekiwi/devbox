@@ -1,0 +1,15 @@
+- name: Ensure systemd templates are copied.
+  ansible.builtin.template:
+    src: templates/systemd/{{ item.unit }}.j2
+    dest: "/home/{{ ansible_user }}/.config/systemd/user/{{ item.unit }}"
+    mode: "644"
+    force: true
+  loop: "{{ dev_systemd_units }}"
+
+- name: Ensure units are enabled.
+  ansible.builtin.systemd:
+    name: "{{ item.unit }}"
+    scope: user
+    state: started
+    enabled: "{{ true | default(false) }}"
+  loop: "{{ dev_systemd_units }}"
