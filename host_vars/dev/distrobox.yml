@@ -1,15 +1,15 @@
 distrobox_host_exec:
-  - bluetoothctl
-  - flatpak
-  - kubectl
-  - minikube
-  - podman
-  - rpm
-  - systemctl
-  - tailscale
-  - vagrant
-  - virsh
-  - xrandr
+  - /usr/bin/bluetoothctl
+  - /usr/bin/flatpak
+  - /usr/bin/kubectl
+  - /usr/bin/minikube
+  - /usr/bin/podman
+  - /usr/bin/rpm
+  - /usr/bin/systemctl
+  - /usr/bin/tailscale
+  - /usr/bin/vagrant
+  - /usr/bin/virsh
+  - /usr/bin/xrandr
 
 distrobox_export_bins:
   - calcurse-caldav

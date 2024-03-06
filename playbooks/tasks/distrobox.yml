@@ -15,6 +15,6 @@
   become: true
   ansible.builtin.file:
     src: "/usr/bin/distrobox-host-exec"
-    dest: "/usr/bin/{{ item }}"
+    dest: "{{ item }}"
     state: link
   loop: "{{ distrobox_host_exec }}"
