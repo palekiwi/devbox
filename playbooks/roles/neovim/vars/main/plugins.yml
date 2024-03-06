@@ -96,3 +96,12 @@ neovim_plugins:
     lazy: true
     config:
       name: vimwiki
+
+  - repo: nomnivore/ollama.nvim
+    dependencies:
+      - nvim-lua/plenary.nvim
+    cmd: ["Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop"]
+    lazy: true
+    enabled: true
+    config:
+      name: ollama
