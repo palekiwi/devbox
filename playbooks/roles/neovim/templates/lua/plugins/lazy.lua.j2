@@ -17,17 +17,16 @@ require("lazy").setup({
       {% if item.build is defined %}
       build = "{{ item.build }}",
       {% endif %}
-      {% if (item.lazy | default(false)) %}
-      lazy = true,
-      {% endif %}
       {% if item.event is defined %}
       event = "{{ item.event }}",
       {% endif %}
+      {% if item.cmd is defined %}
       cmd = {
-        {% for cmd in (item.cmd | default([])) %}
+        {% for cmd in item.cmd %}
         "{{ cmd }}",
         {% endfor %}
       },
+      {% endif %}
       {% if item.dependencies is defined %}
       dependencies = {
         {% for dep in item.dependencies %}
