@@ -19,6 +19,7 @@
   ansible.builtin.command:
     cmd: >
       distrobox create -i {{ dev_container_image_name }}:{{ dev_container_image_tag }}
+      --volume /opt:/opt:rslave
       -n {{ dev_container_name }}
       -H {{ dev_container_home }}
   register: dc

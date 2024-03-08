@@ -12,6 +12,7 @@ packages:
   - libmad        # libmad required by cmus to play mp3 streams
   - nextcloud-client
   - playerctl
+  - python-httplib2
   - rofi
   - rofi-calc
   - rofi-pass
