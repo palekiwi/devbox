@@ -22,6 +22,10 @@
       ansible.builtin.import_tasks: ./tasks/dirs.yml
       tags: dirs
 
+    - name: Tasks/pip.
+      ansible.builtin.import_tasks: ./tasks/pip.yml
+      tags: pip
+
     - name: Tasks/distrobox.
       ansible.builtin.import_tasks: ./tasks/distrobox.yml
       tags: distrobox

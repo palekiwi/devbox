@@ -18,6 +18,7 @@ distrobox_export_bins:
   - ibus
   - ibus-setup
   - ibus-daemon
+  - git-lfs
   - maim
   - nextcloud
   - playerctl

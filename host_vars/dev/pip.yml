@@ -1,0 +1,5 @@
+---
+pip_virtualenv: /home/pl/.venv/arch/dev
+pip_virtualenv_command: /usr/bin/python3 -m venv
+pip_packages:
+  - oterm
