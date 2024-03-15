@@ -1,0 +1,8 @@
+---
+- name: Set up neovim.
+  hosts: dev
+
+  tasks:
+    - name: Include role neovim.
+      ansible.builtin.import_role:
+        name: neovim

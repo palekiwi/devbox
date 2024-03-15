@@ -8,6 +8,15 @@
     - "{{ neovim_base_dir }}"
     - "{{ neovim_config_dir }}"
     - "{{ neovim_plugins_dir }}"
+    - "{{ neovim_ftplugin_dir }}"
+
+- name: Install ftplugin templates.
+  ansible.builtin.template:
+    src: "templates/ftplugin/{{ item.name }}.lua.j2"
+    dest: "{{ neovim_ftplugin_dir }}/{{ item.name }}.lua"
+    mode: "0644"
+  loop:
+    - name: markdown
 
 - name: Install system-level packages.
   ansible.builtin.import_tasks: "system.yml"
@@ -16,13 +25,17 @@
 - name: Set up LSP
   ansible.builtin.import_tasks: "lsp.yml"
   when: neovim_use_lsp
+  tags: plugins
 
 - name: Set up TreeSitter
   ansible.builtin.import_tasks: "treesitter.yml"
   when: neovim_use_treesitter
+  tags: plugins
 
 - name: Install config files
   ansible.builtin.import_tasks: "config.yml"
+  tags: plugins
 
 - name: Install plugins.
   ansible.builtin.import_tasks: "plugins.yml"
+  tags: plugins
