@@ -1,7 +1,7 @@
 ---
 neovim_use_lsp: true
 neovim_use_treesitter: true
-neovim_use_codeium: false
+neovim_use_codeium: true
 neovim_use_chatgpt: false
 neovim_chatgpt_api_key_cmd: "cat /home/pl/.nvim_openai"
 neovim_install_system_packages: true
