@@ -53,6 +53,13 @@ neovim_plugins:
     dependencies:
       - nvim-lua/plenary.nvim
     enabled: true
+    config:
+      name: telescope
+
+  - repo: nvim-telescope/telescope-ui-select.nvim
+    dependencies:
+      - nvim-telescope/telescope.nvim
+    enabled: true
 
   - repo: voldikss/vim-floaterm
     enabled: true
@@ -105,3 +112,8 @@ neovim_plugins:
     enabled: true
     config:
       name: ollama
+
+  - repo: David-Kunz/gen.nvim
+    enabled: true
+    config:
+      name: gen-nvim
