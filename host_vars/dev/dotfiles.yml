@@ -18,6 +18,7 @@ dotfiles_files:
   - { label: "npmrc", dest: "~/.npmrc", src: "arch/npmrc" }
   - { label: "nvim.mappings", dest: "~/.config/nvim/lua/config/mappings.lua", src: "arch/config/nvim/lua/config/mappings-wk.lua" }
   - { label: "nvim.settings", dest: "~/.config/nvim/lua/config/settings.lua", src: "arch/config/nvim/lua/config/settings.lua" }
+  - { label: "nvim.plugins.ollama", dest: "~/.config/nvim/lua/plugins/ollama.lua", src: "arch/config/nvim/lua/plugins/ollama.lua" }
   - { label: "qmk.config", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/config.h", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/config.h" }
   - { label: "qmk.keymap", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/keymap.c", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/keymap.c" }
   - { label: "qmk.rules", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/rules.mk", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/rules.mk" }

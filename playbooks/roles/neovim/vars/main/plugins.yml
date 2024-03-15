@@ -112,8 +112,4 @@ neovim_plugins:
     enabled: true
     config:
       name: ollama
-
-  - repo: David-Kunz/gen.nvim
-    enabled: true
-    config:
-      name: gen-nvim
+      force: false

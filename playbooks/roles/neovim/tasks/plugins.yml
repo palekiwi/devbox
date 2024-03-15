@@ -4,6 +4,7 @@
     src: "templates/lua/plugins/{{ item['config']['name'] }}.lua.j2"
     dest: "{{ neovim_plugins_dir }}/{{ item.config['name'] }}.lua"
     mode: "0644"
+    force: "{{ item.config.force | default(true) }}"
   loop: "{{ neovim_plugins }}"
   when: item.enabled and item.config is defined
 
@@ -33,4 +34,3 @@
         src: templates/lua/plugins/lazy.lua.j2
         dest: "{{ neovim_plugins_dir }}/lazy.lua"
         mode: "0644"
-        force: true
