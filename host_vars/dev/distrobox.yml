@@ -24,7 +24,6 @@ distrobox_export_bins:
   - playerctl
   - rofi
   - rofi-pass
-  - scrot
   - unclutter
   - xclip
   - xdotool
