@@ -89,6 +89,7 @@ neovim_lsp_plugins:
     enabled: "{{ 'rust' in neovim_modules or 'c' in neovim_modules }}"
     dependencies:
       - mfussenegger/nvim-dap
+      - nvim-neotest/nvim-nio
     config:
       name: nvim-dap-ui
 
@@ -106,7 +107,8 @@ neovim_lsp_servers:
   - { name: yamlls, enabled: "{{ 'devops' in neovim_modules }}" }
   - { name: clangd, enabled: "{{ 'c' in neovim_modules or 'cpp' in neovim_modules }}" }
   - { name: gopls, enabled: "{{ 'devops' in neovim_modules }}" }
-  - { name: solargraph, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: solargraph, enabled: "{{ 'devops' in neovim_modules }}", auto: false }
+    # - { name: ruby_ls, enabled: "{{ 'devops' in neovim_modules }}", auto: false }
   - { name: pyright, enabled: "{{ 'python' in neovim_modules }}" }
   - { name: rust_analyzer, enabled: "{{ 'rust' in neovim_modules }}" }
   - { name: lua_ls, enabled: "{{ 'lua' in neovim_modules }}" }

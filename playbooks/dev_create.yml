@@ -13,6 +13,13 @@
         autostart: true
         enabled: true
 
+      - image: localhost/dev/dev
+        tag: latest
+        name: dev-test
+        home: /home/pl/distrobox/dev-test
+        autostart: false
+        enabled: true
+
   tasks:
     - name: Include role dev_container.
       ansible.builtin.include_role:

@@ -4,5 +4,4 @@
   community.general.pacman:
     name:
       - go
-      - ruby
     state: present
