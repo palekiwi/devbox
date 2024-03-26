@@ -12,13 +12,14 @@ dotfiles_files:
   - { label: "calcurse", dest: "~/.config/calcurse", src: "arch/config/calcurse" }
   - { label: "clang-format", dest: "~/.clang-format", src: "arch/clang-format" }
   - { label: "cmus.lib", dest: "~/.config/cmus/lib.pl", src: "arch/config/cmus/lib.pl" }
-  - { label: "githooks", dest: "~/.githooks", src: "arch/git/hooks" }
+  - { label: "gemrc", dest: "~/.gemrc", src: "arch/gemrc" }
   - { label: "gitconfig", dest: "~/.gitconfig", src: "arch/gitconfig" }
+  - { label: "githooks", dest: "~/.githooks", src: "arch/git/hooks" }
   - { label: "gitignore", dest: "~/.gitignore", src: "arch/gitignore" }
   - { label: "npmrc", dest: "~/.npmrc", src: "arch/npmrc" }
   - { label: "nvim.mappings", dest: "~/.config/nvim/lua/config/mappings.lua", src: "arch/config/nvim/lua/config/mappings-wk.lua" }
-  - { label: "nvim.settings", dest: "~/.config/nvim/lua/config/settings.lua", src: "arch/config/nvim/lua/config/settings.lua" }
   - { label: "nvim.plugins.ollama", dest: "~/.config/nvim/lua/plugins/ollama.lua", src: "arch/config/nvim/lua/plugins/ollama.lua" }
+  - { label: "nvim.settings", dest: "~/.config/nvim/lua/config/settings.lua", src: "arch/config/nvim/lua/config/settings.lua" }
   - { label: "qmk.config", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/config.h", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/config.h" }
   - { label: "qmk.keymap", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/keymap.c", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/keymap.c" }
   - { label: "qmk.rules", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/rules.mk", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/rules.mk" }
