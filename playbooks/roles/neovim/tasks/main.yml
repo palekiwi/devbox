@@ -21,6 +21,7 @@
 - name: Install system-level packages.
   ansible.builtin.import_tasks: "system.yml"
   when: neovim_install_system_packages
+  tags: system
 
 - name: Set up LSP
   ansible.builtin.import_tasks: "lsp.yml"

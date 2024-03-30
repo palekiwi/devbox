@@ -3,6 +3,11 @@
   ansible.builtin.import_tasks: "rust.yml"
   when: "'rust' in neovim_modules"
 
+- name: Install requirements for ruby.
+  ansible.builtin.import_tasks: "ruby.yml"
+  when: "'ruby' in neovim_modules"
+  tags: ruby
+
 - name: Install requirements for lua.
   ansible.builtin.import_tasks: "lua.yml"
   when: "'lua' in neovim_modules"

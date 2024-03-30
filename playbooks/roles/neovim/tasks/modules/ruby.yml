@@ -1,0 +1,54 @@
+---
+- name: Ensure rbenv repo is cloned.
+  ansible.builtin.git:
+    repo: "{{ neovim_rbenv_repo }}"
+    dest: "{{ neovim_rbenv_root }}"
+    version: "{{ neovim_rbenv_version }}"
+
+- name: Ensure git rbenv plugins directory exists.
+  ansible.builtin.file:
+    path: "{{ neovim_rbenv_root }}/plugins"
+    mode: "0755"
+    state: directory
+
+- name: Ensure required plugins have been cloned.
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ neovim_rbenv_root }}/plugins/{{ item.name }}"
+    version: "{{ item.version }}"
+  loop: "{{ neovim_rbenv_plugins }}"
+
+- name: Enable caching of rbenv-install downloads.
+  ansible.builtin.file:
+    state: directory
+    path: "{{ neovim_rbenv_root }}/cache"
+    mode: "0755"
+
+- name: Ensure rbenv is included in PATH.
+  ansible.builtin.lineinfile:
+    path: /home/pl/.zshenv
+    line: 'PATH="$HOME/.rbenv/bin:$PATH"'
+
+- name: Ensure rbenv is loaded automatically.
+  ansible.builtin.lineinfile:
+    path: /home/pl/.zshenv
+    line: 'eval "$(~/.rbenv/bin/rbenv init - zsh)"'
+
+- name: Ensure required ruby versions are installed.
+  ansible.builtin.command:
+    cmd: rbenv install -s {{ item }}
+  changed_when: rbenv_install_out.stdout != ""
+  register: rbenv_install_out
+  loop: "{{ neovim_ruby_versions }}"
+
+- name: Ensure global version of ruby is set.
+  ansible.builtin.command:
+    cmd: rbenv global {{ neovim_ruby_global }}
+  changed_when: rbenv_global_out.stdout != ""
+  register: rbenv_global_out
+
+- name: Install required gems.
+  ansible.builtin.command:
+    cmd: /home/pl/.rbenv/shims/gem install {{ item.name }}
+  changed_when: false
+  loop: "{{ neovim_ruby_gems }}"

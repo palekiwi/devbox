@@ -1,0 +1,18 @@
+---
+neovim_rbenv_root: /home/pl/.rbenv
+neovim_rbenv_repo: https://github.com/rbenv/rbenv.git
+neovim_rbenv_version: v1.2.0
+neovim_rbenv_plugins:
+  - name: ruby-build
+    repo: https://github.com/rbenv/ruby-build.git
+    version: master
+
+neovim_ruby_versions:
+  - 3.2.0
+
+neovim_ruby_global: 3.2.0
+
+neovim_ruby_gems:
+  - name: standard
+  - name: solargraph
+  - name: rspec
