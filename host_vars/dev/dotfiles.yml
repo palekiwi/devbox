@@ -17,6 +17,7 @@ dotfiles_files:
   - { label: "githooks", dest: "~/.githooks", src: "arch/git/hooks" }
   - { label: "gitignore", dest: "~/.gitignore", src: "arch/gitignore" }
   - { label: "npmrc", dest: "~/.npmrc", src: "arch/npmrc" }
+  - { label: "rubocop", dest: "~/.rubocop.yml", src: "arch/rubocop.yml" }
   - { label: "nvim.mappings", dest: "~/.config/nvim/lua/config/mappings.lua", src: "arch/config/nvim/lua/config/mappings-wk.lua" }
   - { label: "nvim.plugins.ollama", dest: "~/.config/nvim/lua/plugins/ollama.lua", src: "arch/config/nvim/lua/plugins/ollama.lua" }
   - { label: "nvim.settings", dest: "~/.config/nvim/lua/config/settings.lua", src: "arch/config/nvim/lua/config/settings.lua" }
