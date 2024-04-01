@@ -18,7 +18,7 @@
         name: dev-test
         home: /home/pl/distrobox/dev-test
         autostart: false
-        enabled: true
+        enabled: false
 
   tasks:
     - name: Include role dev_container.

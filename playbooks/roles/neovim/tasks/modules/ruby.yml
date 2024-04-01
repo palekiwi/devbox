@@ -36,7 +36,7 @@
 
 - name: Ensure required ruby versions are installed.
   ansible.builtin.command:
-    cmd: rbenv install -s {{ item }}
+    cmd: /home/pl/.rbenv/bin/rbenv install -s {{ item }}
   changed_when: rbenv_install_out.stdout != ""
   register: rbenv_install_out
   loop: "{{ neovim_ruby_versions }}"
