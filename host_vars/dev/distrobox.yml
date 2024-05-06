@@ -12,6 +12,7 @@ distrobox_host_exec:
   - /usr/bin/xrandr
 
 distrobox_export_bins:
+  - acpi
   - calcurse-caldav
   - cmus
   - cmus-remote
