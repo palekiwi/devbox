@@ -1,5 +1,7 @@
 distrobox_host_exec:
   - /usr/bin/bluetoothctl
+  - /usr/bin/docker
+  - /usr/bin/docker-compose
   - /usr/bin/flatpak
   - /usr/bin/kubectl
   - /usr/bin/minikube
