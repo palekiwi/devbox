@@ -5,7 +5,16 @@ neovim_use_codeium: true
 neovim_use_chatgpt: false
 neovim_chatgpt_api_key_cmd: "cat /home/pl/.nvim_openai"
 neovim_install_system_packages: true
-neovim_modules: ["c", "rust", "ruby", "lua", "python", "web", "devops", "php"]
+neovim_modules:
+  - c
+  - devops
+  - elm
+  - lua
+  - php
+  - python
+  - ruby
+  - rust
+  - web
 
 neovim_notes:
   - name: notes

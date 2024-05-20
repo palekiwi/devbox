@@ -12,6 +12,10 @@
   ansible.builtin.import_tasks: "lua.yml"
   when: "'lua' in neovim_modules"
 
+- name: Install requirements for elm.
+  ansible.builtin.import_tasks: "elm.yml"
+  when: "'elm' in neovim_modules"
+
 - name: Install requirements for php.
   ansible.builtin.import_tasks: "php.yml"
   when: "'php' in neovim_modules"

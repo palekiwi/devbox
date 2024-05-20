@@ -1,0 +1,11 @@
+---
+- name: Install elm packages globally via npm.
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+    state: present
+  loop:
+    - elm
+    - elm-test
+    - elm-format
+    - "@elm-tooling/elm-language-server"
