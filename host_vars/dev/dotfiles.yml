@@ -2,34 +2,34 @@ dotfiles_repo: git@github.com:dhammafarer/dotfiles
 dotfiles_repo_version: main
 dotfiles_repo_accept_hostkey: true
 
-dotfiles_repo_local_dest: ~/dotfiles
+dotfiles_repo_local_dest: /home/pl/dotfiles
 
-dotfiles_record_dir: "~/.dotfiles.d"
+dotfiles_record_dir: "/home/pl/.dotfiles.d"
 
 dotfiles_files:
-  - { label: "aliases", dest: "~/.aliases", src: "arch/aliases" }
-  - { label: "aliases.d", dest: "~/.aliases.d", src: "arch/aliases.d" }
-  - { label: "calcurse", dest: "~/.config/calcurse", src: "arch/config/calcurse" }
-  - { label: "clang-format", dest: "~/.clang-format", src: "arch/clang-format" }
-  - { label: "cmus.lib", dest: "~/.config/cmus/lib.pl", src: "arch/config/cmus/lib.pl" }
-  - { label: "gemrc", dest: "~/.gemrc", src: "arch/gemrc" }
-  - { label: "gitconfig", dest: "~/.gitconfig", src: "arch/gitconfig" }
-  - { label: "githooks", dest: "~/.githooks", src: "arch/git/hooks" }
-  - { label: "gitignore", dest: "~/.gitignore", src: "arch/gitignore" }
-  - { label: "npmrc", dest: "~/.npmrc", src: "arch/npmrc" }
-  - { label: "rubocop", dest: "~/.rubocop.yml", src: "arch/rubocop.yml" }
-  - { label: "nvim.mappings", dest: "~/.config/nvim/lua/config/mappings.lua", src: "arch/config/nvim/lua/config/mappings-wk.lua" }
-  - { label: "nvim.plugins.ollama", dest: "~/.config/nvim/lua/plugins/ollama.lua", src: "arch/config/nvim/lua/plugins/ollama.lua" }
-  - { label: "nvim.settings", dest: "~/.config/nvim/lua/config/settings.lua", src: "arch/config/nvim/lua/config/settings.lua" }
-  - { label: "qmk.config", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/config.h", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/config.h" }
-  - { label: "qmk.keymap", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/keymap.c", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/keymap.c" }
-  - { label: "qmk.rules", dest: "~/.config/qmk/unikeyboard/divergetm2/miryoku/rules.mk", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/rules.mk" }
-  - { label: "ranger.rifle", dest: "~/.config/ranger/rifle.conf", src: "arch/config/ranger/rifle.conf" }
-  - { label: "rofi.colors", dest: "~/.config/rofi/colors.rasi", src: "arch/config/rofi/colors.rasi" }
-  - { label: "rofi.config", dest: "~/.config/rofi/config.rasi", src: "arch/config/rofi/config.rasi" }
-  - { label: "rofi.pass", dest: "~/.config/rofi-pass/config", src: "arch/config/rofi-pass/config" }
-  - { label: "rofi.theme", dest: "~/.config/rofi/theme.rasi", src: "arch/config/rofi/theme.rasi" }
-  - { label: "scripts.cplay", dest: "~/.local/bin/cplay", src: "arch/bin/cplay" }
-  - { label: "snippets", dest: "~/.config/nvim/snippets", src: "arch/config/nvim/snippets" }
-  - { label: "zshenv", dest: "~/.zshenv", src: "arch/zshenv" }
-  - { label: "zshrc", dest: "~/.zshrc", src: "arch/zshrc" }
+  - { label: "aliases", dest: "/home/pl/.aliases", src: "arch/aliases" }
+  - { label: "aliases.d", dest: "/home/pl/.aliases.d", src: "arch/aliases.d" }
+  - { label: "calcurse", dest: "/home/pl/.config/calcurse", src: "arch/config/calcurse" }
+  - { label: "clang-format", dest: "/home/pl/.clang-format", src: "arch/clang-format" }
+  - { label: "cmus.lib", dest: "/home/pl/.config/cmus/lib.pl", src: "arch/config/cmus/lib.pl" }
+  - { label: "gemrc", dest: "/home/pl/.gemrc", src: "arch/gemrc" }
+  - { label: "gitconfig", dest: "/home/pl/.gitconfig", src: "arch/gitconfig" }
+  - { label: "githooks", dest: "/home/pl/.githooks", src: "arch/git/hooks" }
+  - { label: "gitignore", dest: "/home/pl/.gitignore", src: "arch/gitignore" }
+  - { label: "npmrc", dest: "/home/pl/.npmrc", src: "arch/npmrc" }
+  - { label: "rubocop", dest: "/home/pl/.rubocop.yml", src: "arch/rubocop.yml" }
+  - { label: "nvim.mappings", dest: "/home/pl/.config/nvim/lua/config/mappings.lua", src: "arch/config/nvim/lua/config/mappings-wk.lua" }
+  - { label: "nvim.plugins.ollama", dest: "/home/pl/.config/nvim/lua/plugins/ollama.lua", src: "arch/config/nvim/lua/plugins/ollama.lua" }
+  - { label: "nvim.settings", dest: "/home/pl/.config/nvim/lua/config/settings.lua", src: "arch/config/nvim/lua/config/settings.lua" }
+  - { label: "qmk.config", dest: "/home/pl/.config/qmk/unikeyboard/divergetm2/miryoku/config.h", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/config.h" }
+  - { label: "qmk.keymap", dest: "/home/pl/.config/qmk/unikeyboard/divergetm2/miryoku/keymap.c", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/keymap.c" }
+  - { label: "qmk.rules", dest: "/home/pl/.config/qmk/unikeyboard/divergetm2/miryoku/rules.mk", src: "arch/config/qmk/unikeyboard/divergetm2/miryoku/rules.mk" }
+  - { label: "ranger.rifle", dest: "/home/pl/.config/ranger/rifle.conf", src: "arch/config/ranger/rifle.conf" }
+  - { label: "rofi.colors", dest: "/home/pl/.config/rofi/colors.rasi", src: "arch/config/rofi/colors.rasi" }
+  - { label: "rofi.config", dest: "/home/pl/.config/rofi/config.rasi", src: "arch/config/rofi/config.rasi" }
+  - { label: "rofi.pass", dest: "/home/pl/.config/rofi-pass/config", src: "arch/config/rofi-pass/config" }
+  - { label: "rofi.theme", dest: "/home/pl/.config/rofi/theme.rasi", src: "arch/config/rofi/theme.rasi" }
+  - { label: "scripts.cplay", dest: "/home/pl/.local/bin/cplay", src: "arch/bin/cplay" }
+  - { label: "snippets", dest: "/home/pl/.config/nvim/snippets", src: "arch/config/nvim/snippets" }
+  - { label: "zshenv", dest: "/home/pl/.zshenv", src: "arch/zshenv" }
+  - { label: "zshrc", dest: "/home/pl/.zshrc", src: "arch/zshrc" }

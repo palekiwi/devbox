@@ -19,3 +19,5 @@ neovim_modules:
 neovim_notes:
   - name: notes
     path: /home/pl/Nextcloud/Notes
+  - name: ygt
+    path: /home/pl/Nextcloud/Notes/ygt
