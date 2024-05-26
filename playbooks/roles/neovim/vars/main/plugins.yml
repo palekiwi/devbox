@@ -113,3 +113,6 @@ neovim_plugins:
     config:
       name: ollama
       force: false
+
+  - repo: tpope/vim-fugitive
+    enabled: true
