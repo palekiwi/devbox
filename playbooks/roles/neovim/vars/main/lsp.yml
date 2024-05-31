@@ -104,19 +104,19 @@ neovim_lsp_plugins:
 
 neovim_lsp_servers:
   - { name: ansiblels, enabled: "{{ 'devops' in neovim_modules }}" }
-  - { name: yamlls, enabled: "{{ 'devops' in neovim_modules }}" }
+  - { name: astro, enabled: "{{ 'web' in neovim_modules }}" }
   - { name: clangd, enabled: "{{ 'c' in neovim_modules or 'cpp' in neovim_modules }}" }
+  - { name: elmls, enabled: "{{ 'elm' in neovim_modules }}" }
   - { name: gopls, enabled: "{{ 'devops' in neovim_modules }}" }
-  - { name: solargraph, enabled: "{{ 'devops' in neovim_modules }}", auto: false }
-    # - { name: ruby_ls, enabled: "{{ 'devops' in neovim_modules }}", auto: false }
+  - { name: lua_ls, enabled: "{{ 'lua' in neovim_modules }}" }
+  - { name: phpactor, enabled: "{{ 'php' in neovim_modules }}" }
   - { name: pyright, enabled: "{{ 'python' in neovim_modules }}" }
   - { name: rust_analyzer, enabled: "{{ 'rust' in neovim_modules }}" }
-  - { name: lua_ls, enabled: "{{ 'lua' in neovim_modules }}" }
-  - { name: astro, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: solargraph, enabled: "{{ 'devops' in neovim_modules }}", auto: false }
   - { name: tailwindcss, enabled: "{{ 'web' in neovim_modules }}" }
   - { name: tsserver, enabled: "{{ 'web' in neovim_modules }}" }
-  - { name: phpactor, enabled: "{{ 'php' in neovim_modules }}" }
   - { name: volar, enabled: "{{ 'web' in neovim_modules }}" }
+  - { name: yamlls, enabled: "{{ 'devops' in neovim_modules }}" }
 
 neovim_lsp_formatters:
   - { name: pint, enabled: "{{ 'php' in neovim_modules }}" }

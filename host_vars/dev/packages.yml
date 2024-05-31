@@ -18,4 +18,5 @@ packages:
   - rofi-calc
   - rofi-pass
   - seahorse
+  - sops
   - unclutter

@@ -2,9 +2,9 @@ dotfiles_repo: git@github.com:dhammafarer/dotfiles
 dotfiles_repo_version: main
 dotfiles_repo_accept_hostkey: true
 
-dotfiles_repo_local_dest: ~/dotfiles
+dotfiles_repo_local_dest: /home/pl/dotfiles
 
-dotfiles_record_dir: "~/.dotfiles.d"
+dotfiles_record_dir: "/home/pl/.dotfiles.d"
 
 dotfiles_files:
   - { label: "aliases", dest: "/home/pl/.aliases", src: "arch/aliases" }

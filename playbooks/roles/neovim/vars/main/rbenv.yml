@@ -9,8 +9,9 @@ neovim_rbenv_plugins:
 
 neovim_ruby_versions:
   - 3.2.0
+  - 3.3.1
 
-neovim_ruby_global: 3.2.0
+neovim_ruby_global: 3.3.1
 
 neovim_ruby_gems:
   - name: standard
