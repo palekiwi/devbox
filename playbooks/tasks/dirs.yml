@@ -3,32 +3,18 @@
   ansible.builtin.file:
     name: "{{ item }}"
     state: absent
-  loop:
-    - ~/Music
-    - ~/Documents
-    - ~/Desktop
-    - ~/Pictures
-    - ~/Public
-    - ~/Templates
-    - ~/Videos
+  loop: "{{ dirs_remove }}"
 
 - name: Ensure directories exist.
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
     mode: "0755"
-  loop:
-    - "~/code/www"
-    - "~/code/go"
-    - "~/code/servers"
-    - "~/code/roles"
+  loop: "{{ dirs_create }}"
 
 - name: Create soft links.
   ansible.builtin.file:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     state: link
-  loop:
-    - { src: ~/Nextcloud/Documents, dest: ~/Documents }
-    - { src: ~/Nextcloud/Design, dest: ~/Design }
-    - { src: ~/Nextcloud/Notes, dest: ~/Notes }
+  loop: "{{ dirs_link }}"

@@ -1,0 +1,10 @@
+dirs_create: []
+dirs_link: []
+dirs_remove:
+  - ~/Desktop
+  - ~/Documents
+  - ~/Music
+  - ~/Pictures
+  - ~/Public
+  - ~/Templates
+  - ~/Videos

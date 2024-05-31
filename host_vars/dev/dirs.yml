@@ -1,0 +1,7 @@
+dirs_create:
+  - "~/code/ygt"
+  - "~/code/roles"
+
+dirs_link:
+  - { src: ~/Nextcloud/Documents, dest: ~/Documents }
+  - { src: ~/Nextcloud/Notes, dest: ~/Notes }

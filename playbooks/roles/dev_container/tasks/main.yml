@@ -20,6 +20,7 @@
     cmd: >
       distrobox create -i {{ dev_container_image_name }}:{{ dev_container_image_tag }}
       --volume /opt:/opt:rslave
+      --hostname {{ dev_container_hostname }}
       -n {{ dev_container_name }}
       -H {{ dev_container_home }}
   register: dc

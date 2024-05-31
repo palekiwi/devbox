@@ -1,7 +1,5 @@
 distrobox_host_exec:
   - /usr/bin/bluetoothctl
-  - /usr/bin/docker
-  - /usr/bin/docker-compose
   - /usr/bin/flatpak
   - /usr/bin/kubectl
   - /usr/bin/minikube
@@ -18,17 +16,15 @@ distrobox_export_bins:
   - calcurse-caldav
   - cmus
   - cmus-remote
-  - git-lfs
   - ibus
-  - ibus-daemon
   - ibus-setup
+  - ibus-daemon
+  - git-lfs
   - maim
-  - make
   - nextcloud
   - playerctl
   - rofi
   - rofi-pass
-  - sops
   - unclutter
   - xclip
   - xdotool

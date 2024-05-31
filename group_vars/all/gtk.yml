@@ -1,0 +1,9 @@
+gtk_packages:
+  - gtk2
+  - gtk3
+  - gtk4
+  - arc-gtk-theme
+
+gtk_theme: Arc-Darker
+
+gtk_local_themes_dir: "~/.themes"

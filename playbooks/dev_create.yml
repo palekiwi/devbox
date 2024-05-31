@@ -9,6 +9,7 @@
       - image: localhost/dev/dev
         tag: latest
         name: dev
+        hostname: dev.pale.paradise-liberty.ts.net
         home: /home/pl
         autostart: true
         enabled: true
@@ -16,6 +17,7 @@
       - image: localhost/dev/dev
         tag: latest
         name: dev-test
+        hostname: dev-test
         home: /home/pl/distrobox/dev-test
         autostart: false
         enabled: false
@@ -28,6 +30,7 @@
         dev_container_image_name: "{{ item.image }}"
         dev_container_image_tag: "{{ item.tag }}"
         dev_container_name: "{{ item.name }}"
+        dev_container_hostname: "{{ item.hostname }}"
         dev_container_home: "{{ item.home }}"
         dev_container_autostart: "{{ item.autostart }}"
       loop: "{{ dev_containers }}"
