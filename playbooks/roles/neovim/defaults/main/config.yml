@@ -4,7 +4,7 @@ neovim_base_dir: ~/.config/nvim
 
 neovim_install_system_packages: true
 
-neovim_colorscheme: nightfox
+neovim_colorscheme: nordfox
 
 neovim_plugin_manager: lazy
 

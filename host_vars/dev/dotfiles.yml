@@ -31,5 +31,6 @@ dotfiles_files:
   - { label: "rofi.theme", dest: "/home/pl/.config/rofi/theme.rasi", src: "arch/config/rofi/theme.rasi" }
   - { label: "scripts.cplay", dest: "/home/pl/.local/bin/cplay", src: "arch/bin/cplay" }
   - { label: "snippets", dest: "/home/pl/.config/nvim/snippets", src: "arch/config/nvim/snippets" }
+  - { label: "tmux", dest: "/home/pl/.tmux.conf", src: "arch/tmux.conf" }
   - { label: "zshenv", dest: "/home/pl/.zshenv", src: "arch/zshenv" }
   - { label: "zshrc", dest: "/home/pl/.zshrc", src: "arch/zshrc" }

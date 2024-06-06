@@ -5,6 +5,11 @@ neovim_plugins:
     config:
       name: nightfox
 
+  - repo: ellisonleao/gruvbox.nvim
+    enabled: true
+    config:
+      name: gruvbox
+
   - repo: nvim-tree/nvim-web-devicons
     enabled: true
 
