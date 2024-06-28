@@ -9,6 +9,11 @@ neovim_treesitter_plugins:
   - repo: nvim-treesitter/nvim-treesitter-refactor
     enabled: true
 
+  - repo: nvim-treesitter/nvim-treesitter-textobjects
+    enabled: true
+    config:
+      name: nvim-treesitter-text-objects
+
 neovim_treesitter_parsers:
   - { name: vimdoc, enabled: true }
   - { name: bash, enabled: true }
