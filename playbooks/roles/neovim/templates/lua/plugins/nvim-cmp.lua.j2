@@ -25,6 +25,13 @@ cmp.setup {
         ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
+        ['<C-n>'] = cmp.mapping(function(fallback)
+            if luasnip.choice_active() then
+                luasnip.change_choice(1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if luasnip.expand_or_locally_jumpable() then
                 luasnip.expand_or_jump()
