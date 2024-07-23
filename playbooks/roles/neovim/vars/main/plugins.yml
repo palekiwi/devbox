@@ -14,9 +14,18 @@ neovim_plugins:
     enabled: true
 
   - repo: nvim-tree/nvim-tree.lua
-    enabled: true
+    enabled: false
     config:
       name: nvim-tree
+
+  - repo: nvim-neo-tree/neo-tree.nvim
+    enabled: true
+    config:
+      name: neo-tree
+    dependencies:
+      - nvim-tree/nvim-web-devicons
+      - MunifTanjim/nui.nvim
+      - nvim-lua/plenary.nvim
 
   - repo: rcarriga/nvim-notify
     enabled: true
