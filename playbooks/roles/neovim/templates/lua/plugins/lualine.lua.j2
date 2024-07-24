@@ -16,6 +16,15 @@ local function get_status_icon()
   end
 end
 
+local function get_git_base()
+    local git_base = vim.g.git_base
+    if git_base then
+        return git_base
+    else
+        return "HEAD"
+    end
+end
+
 -- Load and configure 'lualine'
 require("lualine").setup({
 	sections = {
@@ -33,6 +42,6 @@ require 'lualine'.setup {
         section_separators = { left = '', right = '' },
     },
     sections = {
-		lualine_a = { get_status_icon },
+		lualine_a = { get_git_base },
     },
 }
