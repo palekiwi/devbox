@@ -14,7 +14,7 @@ dotfiles_files:
   - { label: "cmus.lib", dest: "/home/pl/.config/cmus/lib.pl", src: "arch/config/cmus/lib.pl" }
   - { label: "gemrc", dest: "/home/pl/.gemrc", src: "arch/gemrc" }
   - { label: "gitconfig", dest: "/home/pl/.gitconfig", src: "arch/gitconfig" }
-  - { label: "githooks", dest: "/home/pl/.githooks", src: "arch/git/hooks" }
+  - { label: "githooks.pre-commit", dest: "/home/pl/.githooks/pre-commit", src: "arch/git/hooks/pre-commit" }
   - { label: "gitignore", dest: "/home/pl/.gitignore", src: "arch/gitignore" }
   - { label: "npmrc", dest: "/home/pl/.npmrc", src: "arch/npmrc" }
   - { label: "rubocop", dest: "/home/pl/.rubocop.yml", src: "arch/rubocop.yml" }
